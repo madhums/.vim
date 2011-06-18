@@ -90,7 +90,8 @@ set modeline
 set modelines=10
 
 " Default color scheme
-color default
+color  railscasts
+colorscheme railscasts
 
 " Include user's local vim config
 if filereadable(expand("~/.vimrc.local"))

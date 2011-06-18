@@ -3,7 +3,7 @@ set ruler
 set term=xterm-256color
 color fruit
 color camo
-color desertEx
+color railscasts
 " color ironman
 " sy off
 set nohls
@@ -28,7 +28,7 @@ set visualbell
 nnoremap / /\v
 vnoremap / /\v
 if exists("&colorcolumn")
-  set colorcolumn=80
+  " set colorcolumn=80
 endif
 nnoremap j gj
 nnoremap k gk
@@ -71,3 +71,31 @@ imap <F1> <Esc>
 " escape is so far away
 noremap <Leader>m <Esc>
 inoremap <Leader>m <Esc>
+:highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
+
+function! NERDTreeQuit()
+  redir => buffersoutput
+  silent buffers
+  redir END
+"                     1BufNo  2Mods.     3File           4LineNo
+  let pattern = '^\s*\(\d\+\)\(.....\) "\(.*\)"\s\+line \(\d\+\)$'
+  let windowfound = 0
+
+  for bline in split(buffersoutput, "\n")
+    let m = matchlist(bline, pattern)
+
+    if (len(m) > 0)
+      if (m[2] =~ '..a..')
+        let windowfound = 1
+      endif
+    endif
+  endfor
+
+  if (!windowfound)
+    quitall
+  endif
+endfunction
+autocmd WinEnter * call NERDTreeQuit()
