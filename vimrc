@@ -22,6 +22,13 @@ set smartcase
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc
 
+" no swap files
+set noswapfile
+
+" enable project specific vimrc files
+set exrc
+set secure
+
 " Status bar
 set laststatus=2
 
