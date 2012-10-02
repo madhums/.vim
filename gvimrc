@@ -37,6 +37,8 @@ autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
 autocmd VimEnter * call s:CdIfDirectory(expand("<amatch>"))
 
+map <Leader>n <plug>NERDTreeTabsToggle<CR>
+
 " Disable netrw's autocmd, since we're ALWAYS using NERDTree
 runtime plugin/netRwPlugin.vim
 augroup FileExplorer
@@ -137,3 +139,4 @@ if filereadable(expand("~/.gvimrc.local"))
 endif
 
 set guifont=Menlo:h13
+

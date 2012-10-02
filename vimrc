@@ -100,6 +100,9 @@ set modelines=10
 color  railscasts
 colorscheme railscasts
 
+" pathogen
+call pathogen#infect()
+
 " Include user's local vim config
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
