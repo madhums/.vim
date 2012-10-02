@@ -22,7 +22,9 @@ endif
 set guioptions-=T
 
 " Default gui color scheme
-color molokai
+color railscasts
+
+
 
 " ConqueTerm wrapper
 function StartTerm()
@@ -133,3 +135,5 @@ call s:DefineCommand("e", "Edit")
 if filereadable(expand("~/.gvimrc.local"))
   source ~/.gvimrc.local
 endif
+
+set guifont=Menlo:h13
