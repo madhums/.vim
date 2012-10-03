@@ -139,4 +139,7 @@ if filereadable(expand("~/.gvimrc.local"))
 endif
 
 set guifont=Menlo:h13
-
+set linespace=2
+" set cc=80
+" highlight ColorColumn guibg=#5C5B5A
+autocmd BufWritePre *.js :%s/\s\+$//e
